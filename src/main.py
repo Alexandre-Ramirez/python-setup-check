@@ -5,20 +5,21 @@ operand2 = None
 def main():
     ask_user_input()
     # Perform the operation based on the operator
-    if operator == '+':
-        result = operand1 + operand2
-    elif operator == '-':
-        result = operand1 - operand2
-    elif operator == '*':
-        result = operand1 * operand2
-    elif operator == '/':
-        if operand2 == 0:
-            print("Error: Division by zero is undefined.")
+    match operator:
+        case '+':
+            result = operand1 + operand2
+        case '-':
+            result = operand1 - operand2
+        case '*':
+            result = operand1 * operand2
+        case '/':
+            if operand2 == 0:
+                print("Error: Division by zero is undefined.")
+                return
+            result = operand1 / operand2
+        case _:
+            print("Invalid operator.")
             return
-        result = operand1 / operand2
-    else:
-        print("Invalid operator.")
-        return
 
     # Print the result
     print("Result:", result)
